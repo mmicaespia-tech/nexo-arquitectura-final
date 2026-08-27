@@ -1,0 +1,16 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (max-width: 992px) { @content; }
+  } @else if $breakpoint == mobile {
+    @media (max-width: 576px) { @content; }
+  }
+}
+
+@mixin focus-ring {
+  outline: 3px solid rgba(185, 149, 102, 0.42);
+  outline-offset: 3px;
+}
+
+@mixin section-space {
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+}

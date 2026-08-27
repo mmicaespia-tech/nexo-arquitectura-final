@@ -1,0 +1,178 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+%button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: .75rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform v.$transition, background-color v.$transition, color v.$transition;
+}
+
+.btn-brand {
+  @extend %button-base;
+  background: v.$color-text;
+  color: #fff;
+
+  &:hover {
+    background: v.$color-accent-dark;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-outline-brand {
+  @extend %button-base;
+  border-color: v.$color-text;
+  background: transparent;
+
+  &:hover {
+    background: v.$color-text;
+    color: #fff;
+  }
+}
+
+.navbar {
+  --bs-navbar-padding-y: 1rem;
+  background: rgba(244, 241, 234, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid v.$color-border;
+
+  .navbar-brand {
+    font-weight: 900;
+    letter-spacing: .18em;
+  }
+
+  .nav-link {
+    font-weight: 650;
+    border-radius: 999px;
+    padding-inline: .8rem !important;
+
+    &:hover,
+    &.active {
+      color: v.$color-accent-dark;
+      background: rgba(185, 149, 102, .12);
+    }
+  }
+}
+
+.hero {
+  min-height: 78vh;
+  display: grid;
+  align-items: center;
+  padding-block: clamp(4rem, 8vw, 8rem);
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+
+    @include m.respond(tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    margin: 0 0 1rem;
+  }
+
+  .hero__media {
+    border-radius: v.$radius-lg;
+    overflow: hidden;
+    box-shadow: v.$shadow-soft;
+
+    img {
+      width: 100%;
+      aspect-ratio: 7 / 5;
+      object-fit: cover;
+      transition: transform 700ms ease;
+    }
+
+    &:hover img {
+      transform: scale(1.035);
+    }
+  }
+}
+
+.card-brand {
+  height: 100%;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-md;
+  background: v.$color-surface;
+  padding: 1.5rem;
+  box-shadow: 0 8px 26px rgba(0,0,0,.04);
+  transition: transform v.$transition, box-shadow v.$transition;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: v.$shadow-soft;
+  }
+}
+
+.project-card {
+  overflow: hidden;
+  border-radius: v.$radius-md;
+  background: v.$color-surface;
+  border: 1px solid v.$color-border;
+
+  img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 500ms ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  .project-card__body {
+    padding: 1.25rem;
+  }
+}
+
+.stats {
+  background: v.$color-text;
+  color: #fff;
+  border-radius: v.$radius-lg;
+  padding: clamp(2rem, 5vw, 4rem);
+
+  .stat-number {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: v.$color-accent;
+  }
+
+  p { color: rgba(255,255,255,.72); }
+}
+
+.form-control,
+.form-select {
+  border-radius: v.$radius-sm;
+  border-color: v.$color-border;
+  min-height: 48px;
+
+  &:focus {
+    border-color: v.$color-accent;
+    box-shadow: 0 0 0 .25rem rgba(185,149,102,.15);
+  }
+}
+
+footer {
+  border-top: 1px solid v.$color-border;
+  padding-block: 2rem;
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}

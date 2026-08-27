@@ -1,0 +1,54 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.site-shell {
+  width: min(calc(100% - 2rem), v.$container);
+  margin-inline: auto;
+}
+
+.section {
+  @include m.section-space;
+}
+
+.section-title {
+  max-width: 780px;
+  margin-bottom: 2rem;
+
+  .eyebrow {
+    color: v.$color-accent-dark;
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: .35rem 0 0;
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+
+  @include m.respond(tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+
+  @include m.respond(tablet) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include m.respond(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
