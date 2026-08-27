@@ -43,7 +43,7 @@ npm run watch
 - Preparado para GitHub y Netlify/Vercel
 
 ## Antes de publicar
-Reemplazar https://example.com en:
+Reemplazar https://adorable-horse-2dc662.netlify.app en:
 - canonical
 - Open Graph
 - robots.txt
